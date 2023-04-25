@@ -2,7 +2,10 @@ import Player from '@vimeo/player';
 // import throttle from 'lodash.throttle';
 
 const video = document.querySelector('vimeo-player');
-const player = new Vimeo.Player(video);
+const player = new Vimeo.Player(video, {
+  id: 19231868,
+  width: 640,
+});
 
 player.on('play', function () {
   console.log('played the video!');
