@@ -4,20 +4,25 @@ const video = document.querySelector('vimeo-player');
 const player = new Vimeo.Player(video);
 
 let time; //tiempo en segundos
-
-//Capturando el tiempo con el método getCurrentTime y almacenandolo en el local storage
-player.getCurrentTime().then(function (seconds) {
-    // seconds = the current playback position
-    time = seconds;
+if (localStorage.getItem('currentTime')) {
+    time = localStorage.getItem('currentTime');
+} else {
+    time = 0;
+}
+  //Capturando el tiempo con el método getCurrentTime y almacenandolo en el local storage
+  player
+    .on('timeupdate', function (data) {
+      // seconds = the current playback position
+      time = data.seconds;
       localStorage.setItem('currentTime', time);
-  })
-  .catch(function (error) {
-    // an error occurred
+    })
+    .catch(function (error) {
+      // an error occurred
       console.log(error);
-  });
+    });
 
 //Colocando el tiempo con el método setCurrentTime, obtenido del local storage
-time = localStorage.getItem('currentTime');
+
 player.setCurrentTime(time).then(function (seconds) {
     // seconds = the actual time that the player seeked to
   })
