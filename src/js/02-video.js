@@ -15,10 +15,12 @@ if (localStorage.getItem('currentTime')) {
 player.setCurrentTime(time).then().catch(function (error) {
     switch (error.name) {
       case 'RangeError':
+        console.log("Range Error")
         // the time was less than 0 or greater than the video’s duration
         break;
       default:
         // some other error occurred
+        console.log(error);
         break;
     }
   });
