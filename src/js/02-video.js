@@ -3,7 +3,7 @@ import throttle from 'lodash.throttle';
 
 const video = document.querySelector('vimeo-player');
 const player = new Player(video);
-let time = localStorage.getItem('currentTime');
+const time = localStorage.getItem('currentTime');
 
 //Colocando el tiempo con el método setCurrentTime, obtenido del local storage
 player.setCurrentTime(time).then().catch(function (error) {
