@@ -37,8 +37,6 @@ function setLocalStorage() {
 
 function clearValues() {
   console.log(formObject);
-  formObject.email = "";
-  formObject.message = "";
   localStorage.removeItem('feedback-form-state');
 };
 
