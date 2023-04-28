@@ -25,11 +25,14 @@ if (formSaved) {
 
 //---------Captura el input y almacena en el local storage-------------------
 function setLocalStorage() {
-  formObject = {
-    email: input.value,
-    message: textArea.value,
-  };
-  localStorage.setItem('feedback-form-state', JSON.stringify(formObject));
+  // formObject = {
+  //   email: input.value,
+  //   message: textArea.value,
+  // };
+  console.log(formObject);
+  console.log(input.value);
+  console.log(textArea.value);
+  // localStorage.setItem('feedback-form-state', JSON.stringify(formObject));
 }
 
 function clearValues() {
