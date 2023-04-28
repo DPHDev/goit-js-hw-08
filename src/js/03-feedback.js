@@ -11,7 +11,7 @@ const button = document.querySelector('button[type="submit"]');
 // });
 //--------Revisa si hay info en el locla storage y coloca en el form-------------
 const formSaved = localStorage.getItem('feedback-form-state');
-if (formSaved =! null) {
+if (formSaved != null) {
     input.value = JSON.parse(formSaved).email;
     textArea.value = JSON.parse(formSaved).message;
 };
