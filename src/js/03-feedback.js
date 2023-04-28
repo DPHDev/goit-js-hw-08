@@ -9,6 +9,9 @@ const button = document.querySelector('button[type="submit"]');
 // form.addEventListener('click', () => {
 //   console.log(textArea.value);
 // });
+//-------------Objeto default "feedback-form-state" ------------------
+
+
 //--------Revisa si hay info en el locla storage y coloca en el form-------------
 const formSaved = localStorage.getItem('feedback-form-state');
 if (formSaved != null) {
@@ -16,16 +19,15 @@ if (formSaved != null) {
     textArea.value = JSON.parse(formSaved).message;
 };
 
-//-------------Objeto default "feedback-form-state" ------------------
-  let formObject = {
-    email: input.value,
-    message: textArea.value,
-  };
 
 //---------Captura el input y almacena en el local storage-------------------
 function setLocalStorage() {
-  formObject.email = input.value,
-  formObject.message = textArea.value;
+    let formObject = {
+      email: input.value,
+      message: textArea.value,
+    };
+  // formObject.email = ,
+  // formObject.message = ;
   // // console.log(input.value);
   // // console.log(textArea.value);
   localStorage.setItem('feedback-form-state', JSON.stringify(formObject));
@@ -33,7 +35,7 @@ function setLocalStorage() {
 }
 
 function clearValues() {
-  console.log(formObject);
+  console.log(`Los Datos enviados son: \bemail: ${input.value} \bMensaje: ${textArea.value}`);
   localStorage.removeItem('feedback-form-state');
 };
 
