@@ -6,9 +6,9 @@ const input = document.querySelector('input[type="email"]');
 const textArea = document.querySelector('textarea[name="message"]');
 const button = document.querySelector('button[type="submit"]');
 
-form.addEventListener('click', () => {
-  console.log(textArea.value);
-});
+// form.addEventListener('click', () => {
+//   console.log(textArea.value);
+// });
 
 //-------------Objeto default "feedback-form-state" ------------------
 const formObject = {
@@ -25,14 +25,12 @@ if (formSaved) {
 
 //---------Captura el input y almacena en el local storage-------------------
 function setLocalStorage() {
-  // formObject = {
-  //   email: input.value,
-  //   message: textArea.value,
-  // };
+  formObject.email = input.value,
+    formObject.message = textArea.value;
+  // console.log(input.value);
+  // console.log(textArea.value);
+  localStorage.setItem('feedback-form-state', JSON.stringify(formObject));
   console.log(formObject);
-  console.log(input.value);
-  console.log(textArea.value);
-  // localStorage.setItem('feedback-form-state', JSON.stringify(formObject));
 }
 
 function clearValues() {
