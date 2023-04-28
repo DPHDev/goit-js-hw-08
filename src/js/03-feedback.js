@@ -12,8 +12,7 @@ if (formSaved != null) {
     textArea.value = JSON.parse(formSaved).message;
 };
 
-
-//---------Captura el input y almacena en el local storage-------------------
+//----------- Captura el input y almacena en el local storage -------------------
 function setLocalStorage() {
     let formObject = {
       email: input.value,
@@ -23,6 +22,7 @@ function setLocalStorage() {
 
 }
 
+//------------------ Borrar registros y hacer clear en el form -------------------
 const clearValues = (event) => {
   event.preventDefault();
   console.log(`Los Datos enviados son: email: ${input.value} Mensaje: ${textArea.value}`);
@@ -32,7 +32,7 @@ const clearValues = (event) => {
 };
 
 
-//--------------------- Llamados a funciones -------------------------
+//----------------------------- Llamados a funciones -----------------------------
 form.addEventListener('input', throttle(setLocalStorage, 5000));
-button.addEventListener('submit', clearValues);
+button.addEventListener('click', clearValues);
 
